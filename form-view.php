@@ -9,7 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css"
           rel="stylesheet"/>
-    <title>Your fancy store</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <title>Cupcake Store</title>
 </head>
 <body>
 <div class="container">
