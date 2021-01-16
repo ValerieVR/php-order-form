@@ -71,7 +71,7 @@
                             <input type="checkbox" value="1" name="products[<?php echo $i ?>]"/> <?php echo $product['name'] ?> -
                             &euro; <?= number_format($product['price'], 2) ?></label><br />
                     <?php endforeach; ?>
-                </fieldset>
+                </fieldset><br>
 
                 <button type="submit" class="btn btn-primary">Order!</button>
             </form>
@@ -80,7 +80,23 @@
         </div>
     </div>
     <style>
-        
+        body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        background-image: url(images/cupcake.jpg);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        }
+
+        .form-box {
+        width: 600px;
+        margin-left: 150px;
+        margin-top: 30px;
+        color: #ffffff;
+        }
     </style>
 </body>
 </html>
