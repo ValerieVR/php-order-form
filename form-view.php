@@ -14,6 +14,14 @@
 </head>
 <body>
     <div class="form-box">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Order Confirmation</h4>
+            <p class="font-weight-bold">Cupcakes of choice:</p>
+            <hr>
+            <p class="mb-0 font-weight-bold">Cupcakes will be sent to:</p>
+            <hr>
+            <p>You ordered <strong>&euro; <?php echo $totalValue ?></strong> in food and drinks.</p>
+        </div>
         <div class="container">
             <h1>Place your order</h1>
             <?php // Navigation for when you need it ?>
@@ -76,7 +84,6 @@
                 <button type="submit" class="btn btn-primary">Order!</button>
             </form>
 
-            <footer>You already ordered <strong>&euro; <?php echo $totalValue ?></strong> in food and drinks.</footer>
         </div>
     </div>
     <style>
