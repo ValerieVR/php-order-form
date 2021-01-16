@@ -14,11 +14,17 @@
 </head>
 <body>
     <div class="form-box">
-        <div class="alert alert-success" role="alert">
-            <h4 class="alert-heading">Order Confirmation</h4>
-            <p class="font-weight-bold">Cupcakes of choice:</p>
+        <div class="alert alert-success" role="alert" <?php echo "style=display:none"; if (isset($_POST["submit"])) {echo "style=display:block";} ?>>
+            <h4 class="mb-2 alert-heading">Order Confirmation</h4>
+            <p class="mb-0 font-weight-bold">Cupcakes of choice:</p>
+            <?php if (isset($_POST["submit"])) {
+                cupcakesOfChoice();
+            }?>
             <hr>
             <p class="mb-0 font-weight-bold">Cupcakes will be sent to:</p>
+            <?php if (isset($_POST["submit"])) {
+                sentCupcakesTo();
+            }?>
             <hr>
             <p>You ordered <strong>&euro; <?php echo $totalValue ?></strong> in food and drinks.</p>
         </div>
@@ -81,7 +87,7 @@
                     <?php endforeach; ?>
                 </fieldset><br>
 
-                <button type="submit" name="order-bttn" class="btn btn-primary">Order!</button>
+                <button type="submit" name="submit" class="btn btn-primary">Order!</button>
             </form>
 
         </div>
@@ -96,6 +102,7 @@
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
+        color: red;
         }
 
         .form-box {

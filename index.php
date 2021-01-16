@@ -6,21 +6,27 @@
 // This line makes PHP behave in a more strict way
 declare(strict_types=1);
 
-// This 3 lines are to display errors that may occur
-ini_set('display_errors', '1');
-ini_set('display_startup_errors', '1');
-error_reporting(E_ALL);
-
 // We are going to use session variables so we need to enable sessions
 session_start();
 
-// variables
+// Here variables are defined
 $email = $_POST['email'];
 $street = $_POST['street'];
 $streetnumber = $_POST['streetnumber'];
 $city = $_POST['city'];
 $zipcode = $_POST['zipcode'];
-$products_array = $_POST['products'];
+$chosenProductsArray = $_POST['products'];
+$totalValue = 0;
+$products = [
+    ['name' => 'Classic Vanilla', 'price' => 2],
+    ['name' => 'Chocolate', 'price' => 2],
+    ['name' => 'Lemon Drizzle', 'price' => 2.5],
+    ['name' => 'Red Velvet', 'price' => 3],
+    ['name' => 'Cinnamon Toast', 'price' => 3],
+    ['name' => 'Apple Crumble', 'price' => 3.5]
+];
+
+// Here functions are defined
 
 // Use this function when you need to need an overview of these variables
 function whatIsHappening() {
@@ -34,19 +40,28 @@ function whatIsHappening() {
     var_dump($_SESSION);
 }
 
+function cupcakesOfChoice() {
+    foreach ($GLOBALS['chosenProductsArray'] as $index => $value) {
+        echo $GLOBALS['products'][$index]['name'];
+        echo '<br>';
+    }
+}
+
+function sentCupcakesTo() {
+    echo "{$GLOBALS['street']} {$GLOBALS['streetnumber']}";
+    echo "<br>";
+    echo "{$GLOBALS['zipcode']} {$GLOBALS['city']}";
+}
+
+
+// Loops
+
+// Loop to calculate total value of cupcakes
+foreach ($chosenProductsArray as $index => $value) {
+    $totalValue += $products[$index]['price'];
+}
+
+// Here functions are called
 whatIsHappening();
-
-$products = [
-    ['name' => 'Classic Vanilla', 'price' => 2],
-    ['name' => 'Chocolate', 'price' => 2],
-    ['name' => 'Lemon Drizzle', 'price' => 2.5],
-    ['name' => 'Red Velvet', 'price' => 3],
-    ['name' => 'Cinnamon Toast', 'price' => 3],
-    ['name' => 'Apple Crumble', 'price' => 3.5]
-];
-
-$totalValue = 0;
-
-
 
 require 'form-view.php';
