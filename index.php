@@ -29,7 +29,12 @@ whatIsHappening();
 
 // TODO: provide some products (you may overwrite the example)
 $products = [
-    ['name' => 'Your favourite drink', 'price' => 2.5],
+    ['name' => 'Classic Vanilla', 'price' => 2],
+    ['name' => 'Chocolate', 'price' => 2],
+    ['name' => 'Lemon Drizzle', 'price' => 2.5],
+    ['name' => 'Red Velvet', 'price' => 3],
+    ['name' => 'Cinnamon Toast', 'price' => 3],
+    ['name' => 'Apple Crumble', 'price' => 3.5]
 ];
 
 $totalValue = 0;
