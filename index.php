@@ -9,6 +9,7 @@ declare(strict_types=1);
 // We are going to use session variables so we need to enable sessions
 session_start();
 
+
 // Here variables are defined
 $email = $_POST['email'];
 $street = $_POST['street'];
@@ -26,6 +27,7 @@ $products = [
     ['name' => 'Cinnamon Toast', 'price' => 3],
     ['name' => 'Apple Crumble', 'price' => 3.5]
 ];
+$_SESSION['email'] = $_SESSION['street'] = $_SESSION['streetnumber'] = $_SESSION['city'] = $_SESSION['zipcode'] = '';
 
 // Here functions are defined
 // 1) Use this function when you need to need an overview of these variables
@@ -55,14 +57,12 @@ function sentCupcakesTo() {
     echo "{$GLOBALS['zipcode']} {$GLOBALS['city']}";
 }
 
-
-// Loops
-// 1) Loop to calculate total value of cupcakes
+// Loop to calculate total value of cupcakes
 foreach ($chosenProductsArray as $index => $value) {
     $totalValue += $products[$index]['price'];
 }
 
-// 2) if statements to check multiple cases
+// if statements to check multiple cases
 $errors = 0;
 if (isset($_POST['submit'])) {
     if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -96,8 +96,28 @@ if (isset($_POST['submit'])) {
     }
 }
 
+// if statements for the session variables
+if (isset($_POST['submit'])) {
+    if (!empty($_POST['email'])) {
+        $_SESSION['email'] = $_POST['email'];
+    }
 
+    if (!empty($_POST['street'])) {
+        $_SESSION['street'] = $_POST['street'];
+    }
 
+    if (!empty($_POST['streetnumber'])) {
+        $_SESSION['streetnumber'] = $_POST['streetnumber'];
+    }
+
+    if (!empty($_POST['city'])) {
+        $_SESSION['city'] = $_POST['city'];
+    }
+
+    if (!empty($_POST['zipcode'])) {
+        $_SESSION['zipcode'] = $_POST['zipcode'];
+    }
+}
 
 // Here functions are called
 whatIsHappening();
