@@ -14,7 +14,10 @@
 </head>
 <body>
     <div class="form-box">
-        <div class="alert alert-success" role="alert" <?php echo "style=display:none"; if (isset($_POST["submit"])) {echo "style=display:block";} ?>>
+    <div class="alert alert-danger" role="alert" <?php echo "style=display:none"; if (isset($_POST["submit"])) {if ($errors > 0) {echo "style=display:block";}}?>>
+        <p class="mb-0">Something went wrong! Please check the required fields.</p>
+    </div>
+        <div class="alert alert-success" role="alert" <?php echo "style=display:none"; if (isset($_POST["submit"])) {if ($errors === 0) {echo "style=display:block";}} ?>>
             <h4 class="mb-2 alert-heading">Order Confirmation</h4>
             <p class="mb-0 font-weight-bold">Cupcakes of choice:</p>
             <?php if (isset($_POST["submit"])) {
