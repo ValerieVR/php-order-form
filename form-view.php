@@ -81,7 +81,7 @@
                     <?php endforeach; ?>
                 </fieldset><br>
 
-                <button type="submit" class="btn btn-primary">Order!</button>
+                <button type="submit" name="order-bttn" class="btn btn-primary">Order!</button>
             </form>
 
         </div>
