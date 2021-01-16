@@ -17,6 +17,7 @@ $city = $_POST['city'];
 $zipcode = $_POST['zipcode'];
 $chosenProductsArray = $_POST['products'];
 $totalValue = 0;
+$emailInvalid = $streetInvalid = $streetnumberInvalid = $cityInvalid = $zipcodeInvalid = $productsInvalid = '';
 $products = [
     ['name' => 'Classic Vanilla', 'price' => 2],
     ['name' => 'Chocolate', 'price' => 2],
@@ -27,8 +28,7 @@ $products = [
 ];
 
 // Here functions are defined
-
-// Use this function when you need to need an overview of these variables
+// 1) Use this function when you need to need an overview of these variables
 function whatIsHappening() {
     echo '<h2>$_GET</h2>';
     var_dump($_GET);
@@ -40,6 +40,7 @@ function whatIsHappening() {
     var_dump($_SESSION);
 }
 
+// 2) Function to display chosen cupcakes
 function cupcakesOfChoice() {
     foreach ($GLOBALS['chosenProductsArray'] as $index => $value) {
         echo $GLOBALS['products'][$index]['name'];
@@ -47,6 +48,7 @@ function cupcakesOfChoice() {
     }
 }
 
+// 3) Function to display customer's address
 function sentCupcakesTo() {
     echo "{$GLOBALS['street']} {$GLOBALS['streetnumber']}";
     echo "<br>";
@@ -55,11 +57,47 @@ function sentCupcakesTo() {
 
 
 // Loops
-
-// Loop to calculate total value of cupcakes
+// 1) Loop to calculate total value of cupcakes
 foreach ($chosenProductsArray as $index => $value) {
     $totalValue += $products[$index]['price'];
 }
+
+// 2) if statements to check multiple cases
+$errors = 0;
+if (isset($_POST['submit'])) {
+    if (empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $emailInvalid = ' *';
+        $errors = 1;
+    }
+
+    if (empty($street)) {
+        $streetInvalid = ' *';
+        $errors += 1;
+    }
+
+    if (empty($streetnumber) || (is_numeric($streetnumber) === false)) {    
+        $streetnumberInvalid = ' *';
+        $errors += 1;
+    }
+
+    if (empty($city)) {
+        $cityInvalid = ' *';
+        $errors += 1;
+    }
+
+    if (empty($zipcode) || (is_numeric($zipcode) === false)) {
+        $zipcodeInvalid  = ' *';
+        $errors += 1;
+    }
+
+    if (empty($chosenProductsArray)) {
+        $productsInvalid = ' *';
+        $errors += 1;
+    }
+}
+
+
+
 
 // Here functions are called
 whatIsHappening();

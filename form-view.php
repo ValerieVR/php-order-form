@@ -46,7 +46,7 @@
             <form method="post">
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="email">E-mail:</label>
+                        <label for="email">E-mail:<strong class="invalid"><?php echo $emailInvalid;?></strong></label>
                         <input type="email" id="email" name="email" class="form-control"/>
                     </div>
                     <div></div>
@@ -57,28 +57,28 @@
 
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="street">Street:</label>
+                            <label for="street">Street:<strong class="invalid"><?php echo $streetInvalid;?></strong></label>
                             <input type="text" name="street" id="street" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="streetnumber">Street number:</label>
+                            <label for="streetnumber">Street number:<strong class="invalid"><?php echo $streetnumberInvalid;?></strong></label>
                             <input type="text" id="streetnumber" name="streetnumber" class="form-control">
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="city">City:</label>
+                            <label for="city">City:<strong class="invalid"><?php echo $cityInvalid;?></strong></label>
                             <input type="text" id="city" name="city" class="form-control">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="zipcode">Zipcode</label>
+                            <label for="zipcode">Zipcode:<strong class="invalid"><?php echo $zipcodeInvalid;?></strong></label>
                             <input type="text" id="zipcode" name="zipcode" class="form-control">
                         </div>
                     </div>
                 </fieldset>
 
                 <fieldset>
-                    <legend>Products</legend>
+                    <legend>Products<strong class="invalid"><?php echo $productsInvalid;?></strong></legend>
                     <?php foreach ($products as $i => $product): ?>
                         <label>
                             <?php // <?p= is equal to <?php echo ?>
@@ -110,6 +110,10 @@
         margin-left: 150px;
         margin-top: 30px;
         color: #ffffff;
+        }
+
+        .invalid {
+            color: #ff5733;
         }
     </style>
 </body>
