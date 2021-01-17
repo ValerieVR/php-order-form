@@ -27,7 +27,7 @@ $products = [
     ['name' => 'Cinnamon Toast', 'price' => 3],
     ['name' => 'Apple Crumble', 'price' => 3.5]
 ];
-$_SESSION['email'] = $_SESSION['street'] = $_SESSION['streetnumber'] = $_SESSION['city'] = $_SESSION['zipcode'] = '';
+
 
 // Here functions are defined
 // 1) Use this function when you need to need an overview of these variables
